@@ -41,14 +41,4 @@ public class Resena {
 
     @Column(nullable = false)
     private LocalDate fechaPublicacion;
-
-/*+createResena()
-+readResena()
-+updateResena()
-+eliminarResena()
-+aprobarResena()
-+ocultarResena()
-+marcarVisible()
-+listarResenas()
- */
 }

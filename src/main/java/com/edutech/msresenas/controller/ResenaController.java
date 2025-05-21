@@ -36,24 +36,29 @@ public class ResenaController {
 
     @PostMapping
     public ResponseEntity<Resena> createResena(@RequestBody Resena resena) {
-        Resena nuevaResena = resenaService.save(resena);
-        return new ResponseEntity<>(nuevaResena, HttpStatus.ACCEPTED);
+        Resena buscarResena = resenaService.findById(resena.getIdResena());
+        if(buscarResena == null) {
+            Resena nuevaResena = resenaService.save(resena);
+            return new ResponseEntity<>(nuevaResena, HttpStatus.ACCEPTED);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+        }
     }
 
     @GetMapping("/{idResena}")
     public ResponseEntity<Resena> readResena(@PathVariable int idResena) {
-        try {
-            Resena resena = resenaService.findById(idResena);
-            return new ResponseEntity<>(resena, HttpStatus.OK);
-        } catch(Exception e) {
+        Resena buscResena = resenaService.findById(idResena);
+        if(buscResena != null) {
+            return new ResponseEntity<>(buscResena, HttpStatus.OK);
+        } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
     @PutMapping("/{idResena}")
     public ResponseEntity<Resena> updateResena(@PathVariable int idResena, @RequestBody Resena resena) {
-        try {
-            Resena res = resenaService.findById(idResena);
+        Resena res = resenaService.findById(idResena);
+        if(res != null) {
             res.setIdResena(idResena);
             res.setMensaje(resena.getMensaje());
             res.setIdCurso(resena.getIdCurso());
@@ -64,17 +69,18 @@ public class ResenaController {
 
             resenaService.save(res);
             return new ResponseEntity<>(resena, HttpStatus.OK);
-        } catch(Exception e) {
+        } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
     @DeleteMapping("/{idResena}")
     public  ResponseEntity<?> deleteResena(@PathVariable int idResena) {
-        try {
+        Resena buscResena = resenaService.findById(idResena);
+        if(buscResena != null) {
             resenaService.deleteById(idResena);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } catch(Exception e) {
+        } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
