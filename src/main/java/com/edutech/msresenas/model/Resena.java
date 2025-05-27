@@ -24,7 +24,7 @@ public class Resena {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idResena;
 
-    @Column(length = 1000, nullable = false)
+    @Column(length = 1000, nullable = true)
     private String mensaje;
 
     @Column(nullable = false)
@@ -33,7 +33,7 @@ public class Resena {
     @Column(nullable = false)
     private int idUsuario;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private int calificacion;
 
     @Column(nullable = false)

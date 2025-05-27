@@ -1,12 +1,14 @@
 package com.edutech.msresenas.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -57,17 +59,7 @@ public class ResenaController {
 
     @PutMapping("/{idResena}")
     public ResponseEntity<Resena> updateResena(@PathVariable int idResena, @RequestBody Resena resena) {
-        Resena res = resenaService.findById(idResena);
-        if(res != null) {
-            res.setIdResena(idResena);
-            res.setMensaje(resena.getMensaje());
-            res.setIdCurso(resena.getIdCurso());
-            res.setIdUsuario(resena.getIdUsuario());
-            res.setCalificacion(resena.getCalificacion());
-            res.setVisible(resena.getVisible());
-            res.setFechaPublicacion(resena.getFechaPublicacion());
-
-            resenaService.save(res);
+        if(resenaService.update(idResena, resena)) {
             return new ResponseEntity<>(resena, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -80,6 +72,35 @@ public class ResenaController {
         if(buscResena != null) {
             resenaService.deleteById(idResena);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PatchMapping("/{idResena}/modificar/visible")
+    public ResponseEntity<?> cambiarVisibilidad(@PathVariable int idResena) {
+        if(resenaService.cambiarVisibilidad(idResena)) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PatchMapping("/{idResena}/modificar/resena")
+    public ResponseEntity<?> modificarResena(@PathVariable int idResena, @RequestBody Map<String, String> body) {
+        String nuevaResena = body.get("mensaje");
+        if(resenaService.modificarResena(idResena, nuevaResena)) {
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PatchMapping("/{idResena}/modificar/calificacion")
+    public ResponseEntity<?> modificarCalificacion(@PathVariable int idResena, @RequestBody Map<String, Integer> body) {
+        int nuevaCalificacion = body.get("calificacion");
+        if(resenaService.modificarCalificacion(idResena, nuevaCalificacion)) {
+            return new ResponseEntity<>(HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
