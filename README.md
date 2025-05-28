@@ -1,2 +1,2 @@
 # Microservicio de Reseñas y Calificaciones
-# server.port = 8080
+# server.port = 8085
