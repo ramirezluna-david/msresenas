@@ -31,10 +31,10 @@ public class Resena {
     private int idCurso;
 
     @Column(length = 50, nullable = false)
-    private String tituloCurso;
+    private String titulo;
 
     @Column(nullable = false)
-    private int idUsuario;
+    private int idUser;
 
     @Column(length = 50, nullable = false)
     private String username;
