@@ -54,7 +54,7 @@ public class ResenaService {
             res.setIdResena(idResena);
             res.setMensaje(resena.getMensaje());
             res.setIdCurso(resena.getIdCurso());
-            res.setIdUsuario(resena.idUser());
+            res.setIdUser(resena.getIdUser());
             res.setCalificacion(resena.getCalificacion());
             res.setVisible(resena.getVisible());
             res.setFechaPublicacion(resena.getFechaPublicacion());
