@@ -1,0 +1,20 @@
+INSERT INTO Resena (
+    mensaje,
+    id_curso,
+    id_user,
+    calificacion,
+    visible,
+    fecha_publicacion,
+    titulo,
+    username
+) VALUES
+('Excelente curso, muy bien explicado y con ejemplos claros.', 1, 1, 5, TRUE, '2025-05-01', 'Java Básico', 'alice'),
+('Me gustó mucho el enfoque práctico del curso.', 1, 2, 4, TRUE, '2025-05-02', 'Java Básico', 'bob'),
+('Faltaron algunos temas importantes, pero en general está bien.', 2, 3, 3, TRUE, '2025-05-03', 'Python Intermedio', 'charlie'),
+('No lo recomendaría, el contenido está desactualizado.', 2, 4, 2, FALSE, '2025-05-04', 'Python Intermedio', 'david'),
+('Perfecto para quienes están empezando con programación.', 3, 5, 5, TRUE, '2025-05-05', 'Diseño UX/UI', 'eva'),
+('Muy técnico, se necesita experiencia previa para entenderlo bien.', 3, 6, 3, TRUE, '2025-05-06', 'Diseño UX/UI', 'frank'),
+('Excelente curso, el instructor explica todo con claridad.', 4, 7, 5, TRUE, '2025-05-07', 'Bases de Datos', 'grace'),
+('Contenido muy básico para el nivel que esperaba.', 4, 8, 2, FALSE, '2025-05-08', 'Bases de Datos', 'henry'),
+('Muy completo, pero algo extenso.', 5, 9, 4, TRUE, '2025-05-09', 'Machine Learning', 'irene'),
+('Lo mejor del curso es la parte práctica con proyectos reales.', 5, 10, 5, TRUE, '2025-05-10', 'Machine Learning', 'jack');
