@@ -2,7 +2,7 @@
   {
     "mensaje": "Excelente curso, muy bien explicado y con ejemplos claros.",
     "idCurso": 1,
-    "idUsuario": 1,
+    "idUser": 1,
     "calificacion": 5,
     "visible": true,
     "fechaPublicacion": "2025-05-01"
@@ -10,7 +10,7 @@
   {
     "mensaje": "Me gustó mucho el enfoque práctico del curso.",
     "idCurso": 1,
-    "idUsuario": 2,
+    "idUser": 2,
     "calificacion": 4,
     "visible": true,
     "fechaPublicacion": "2025-05-02"
@@ -18,7 +18,7 @@
   {
     "mensaje": "Faltaron algunos temas importantes, pero en general está bien.",
     "idCurso": 2,
-    "idUsuario": 3,
+    "idUser": 3,
     "calificacion": 3,
     "visible": true,
     "fechaPublicacion": "2025-05-03"
@@ -26,7 +26,7 @@
   {
     "mensaje": "No lo recomendaría, el contenido está desactualizado.",
     "idCurso": 2,
-    "idUsuario": 4,
+    "idUser": 4,
     "calificacion": 2,
     "visible": false,
     "fechaPublicacion": "2025-05-04"
@@ -34,7 +34,7 @@
   {
     "mensaje": "Perfecto para quienes están empezando con programación.",
     "idCurso": 3,
-    "idUsuario": 5,
+    "idUser": 5,
     "calificacion": 5,
     "visible": true,
     "fechaPublicacion": "2025-05-05"
@@ -42,7 +42,7 @@
   {
     "mensaje": "Muy técnico, se necesita experiencia previa para entenderlo bien.",
     "idCurso": 3,
-    "idUsuario": 6,
+    "idUser": 6,
     "calificacion": 3,
     "visible": true,
     "fechaPublicacion": "2025-05-06"
@@ -50,7 +50,7 @@
   {
     "mensaje": "Excelente curso, el instructor explica todo con claridad.",
     "idCurso": 4,
-    "idUsuario": 7,
+    "idUser": 7,
     "calificacion": 5,
     "visible": true,
     "fechaPublicacion": "2025-05-07"
@@ -58,7 +58,7 @@
   {
     "mensaje": "Contenido muy básico para el nivel que esperaba.",
     "idCurso": 4,
-    "idUsuario": 8,
+    "idUser": 8,
     "calificacion": 2,
     "visible": false,
     "fechaPublicacion": "2025-05-08"
@@ -66,7 +66,7 @@
   {
     "mensaje": "Muy completo, pero algo extenso.",
     "idCurso": 5,
-    "idUsuario": 9,
+    "idUser": 9,
     "calificacion": 4,
     "visible": true,
     "fechaPublicacion": "2025-05-09"
@@ -74,7 +74,7 @@
   {
     "mensaje": "Lo mejor del curso es la parte práctica con proyectos reales.",
     "idCurso": 5,
-    "idUsuario": 10,
+    "idUser": 10,
     "calificacion": 5,
     "visible": true,
     "fechaPublicacion": "2025-05-10"
