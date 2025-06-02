@@ -26,11 +26,11 @@ public class ResenaService {
         // return resenaRepository.save(resena);
         String urlUser = "http://localhost:8081/api/v1/usuarios/" + resena.getIdUser();
         UserDTO user = restTemplate.getForObject(urlUser, UserDTO.class);
-        String urlCurso = "http://localhost:8081/api/v1/cursos/" + resena.getIdCurso();
-        CursoDTO curso = restTemplate.getForObject(urlCurso, CursoDTO.class);
-        if(user != null && curso != null) {
+        /*String urlCurso = "http://localhost:8081/api/v1/cursos/" + resena.getIdCurso();
+        CursoDTO curso = restTemplate.getForObject(urlCurso, CursoDTO.class);*/
+        if(user != null /*&& curso != null*/) {
             resena.setUsername(user.getUsername());
-            resena.setTitulo(curso.getTitulo());
+            // resena.setTitulo(curso.getTitulo());
         }
 
         return resenaRepository.save(resena);
