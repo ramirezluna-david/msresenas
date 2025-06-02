@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
+import com.edutech.msresenas.model.CursoDTO;
 import com.edutech.msresenas.model.Resena;
+import com.edutech.msresenas.model.UserDTO;
 import com.edutech.msresenas.repository.ResenaRepository;
 
 @Service
@@ -16,7 +19,20 @@ public class ResenaService {
     @Autowired
     private ResenaRepository resenaRepository;
 
+    @Autowired
+    private RestTemplate restTemplate;
+
     public Resena save(Resena resena) {
+        // return resenaRepository.save(resena);
+        String urlUser = "http://localhost:8081/api/v1/usuarios/" + resena.getIdUsuario();
+        UserDTO user = restTemplate.getForObject(urlUser, UserDTO.class);
+        String urlCurso = "http://localhost:8081/api/v1/cursos/" + resena.getIdCurso();
+        CursoDTO curso = restTemplate.getForObject(urlCurso, CursoDTO.class);
+        if(user != null && curso != null) {
+            resena.setUsername(user.getUsername());
+            resena.setTituloCurso(curso.getTitulo());
+        }
+
         return resenaRepository.save(resena);
     }
 
