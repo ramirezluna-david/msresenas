@@ -30,8 +30,14 @@ public class Resena {
     @Column(nullable = false)
     private int idCurso;
 
+    @Column(length = 50, nullable = false)
+    private String titulo;
+
     @Column(nullable = false)
-    private int idUsuario;
+    private int idUser;
+
+    @Column(length = 50, nullable = false)
+    private String username;
 
     @Column(nullable = false)
     private int calificacion;
